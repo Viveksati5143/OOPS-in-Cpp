@@ -11,18 +11,23 @@ public:
         circumference = a*3;
         area = (1.73 * a * a)/4;
     }
-    friend void Display(EqTriangle );
+    // friend void Display(EqTriangle );
+    friend  class Homework;
 };
-void Display(EqTriangle et){
-    cout<<"Circumference : "<<et.circumference<<endl;
-    cout<<"Area : "<<et.area<<endl;
-}
+
+class Homework{
+public:
+    void Display(EqTriangle et){
+        cout<<"Circumference : "<<et.circumference<<endl;
+        cout<<"Area : "<<et.area<<endl;
+    }
+};
 
 int main()
 {
     EqTriangle et;
     et.setA(3);
-    
-    Display(et);    
+    Homework h;    
+    h.Display(et);    
     return 0;
 }
