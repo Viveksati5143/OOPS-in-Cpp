@@ -29,9 +29,9 @@ int main(){
     cin>>h; 
     cout<<"Enter length for cube::"; 
     cin>>len; 
-    cout<<"Enter breath for cude::"; 
+    cout<<"Enter breath for cube::"; 
     cin>>br; 
-    cout<<"Enter height for cude::"; 
+    cout<<"Enter height for cube::"; 
     cin>>hgt; 
     Volume o(side); 
     Volume o2(r,h); 
