@@ -1,57 +1,36 @@
-#include<iostream>
-#include<string>
-#include<list>
-
+// C++ program to reverse words in a given string
+#include <bits/stdc++.h>
 using namespace std;
 
-struct OperatorOverloading{
-    string Name;
-    int SubscribersCount;
+void reversed(string& s, int l, int r)
+{
+	while (l < r) {
+		swap(s[l], s[r]);
+		l++;
+		r--;
+	}
+}
 
-    OperatorOverloading(string name, int subscribersCount){
-        Name = name;
-        SubscribersCount = subscribersCount;
-    }
-
-    // bool operator==(const OperatorOverloading& channel)const{
-    //     return this->Name == channel.Name;
-    // }
-};
-
-    ostream& operator<<(ostream& COUT, OperatorOverloading& zee){
-    COUT << "Name: "<<zee.Name << endl;
-    COUT << "Subscribers: " << zee.SubscribersCount << endl;
-    return COUT;
-} 
-
-struct MyCollection{
-    list<OperatorOverloading>mychannels;
-
-    void operator+(OperatorOverloading& channel){
-        this->mychannels.push_back(channel);
-    }
-    void operator-(OperatorOverloading& channel){
-        this->mychannels.remove(channel);
-    }
-};
-
-    ostream& operator<<(ostream& COUT, MyCollection& myCollection){
-        for(OperatorOverloading op1 : myCollection.mychannels)
-        COUT << op1 << endl;
-        return COUT;
-} 
+string reverseString(string str)
+{
+	str.insert(str.end(), ' ');
+	int n = str.length();
+	int j = 0;
+	for (int i = 0; i < n; i++) {
+		if (str[i] == ' '){
+			reversed(str, j, i - 1);
+			j = i + 1;
+		}
+	}
+	str.pop_back();
+	reversed(str, 0, str.length() - 1);	// Reverse the whole string
+	return str;
+}
 
 int main()
 {
-    OperatorOverloading op1 = OperatorOverloading("Vivek",75000);
-    OperatorOverloading op2 = OperatorOverloading("Mafia",555000);
-    OperatorOverloading op3 = OperatorOverloading("Jodd",99000);
-    // cout << op1<<op2;    
-    MyCollection myCollection;
-    // myCollection += op1;
-    // myCollection += op2;
-    // myCollection -= op3;
-
-    cout<< mycollection(op1 + op2);
-    cin.get();
+	string str = "I like this code";
+	string rev = reverseString(str);
+	cout << rev;
+	return 0;
 }
