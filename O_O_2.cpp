@@ -31,9 +31,9 @@ istream & operator >> (istream &in, Complex &c)
 
 int main()
 {
-Complex c1;
-cin >> c1;
+Complex z;
+cin >> z;
 cout << "The complex object is ";
-cout << c1;
+cout << z;
 return 0;
 }
